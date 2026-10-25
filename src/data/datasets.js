@@ -1,0 +1,86 @@
+export const datasets = {
+  co: {
+    label: 'Carbon Monoxide',
+    instruments: ['Bass', 'Piano', 'Strings'],
+    description:
+      'Carbon Monoxide sounds like a deep bass rumble with occasional piano chords. The more red you see, the louder the bass.',
+    video: '/videos/co_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5110',
+    live: 'https://svs.gsfc.nasa.gov/5110/',
+    colorPercent: [
+      { color: 'red',    instrument: 'Bass',    percent: 8.5 },
+      { color: 'orange', instrument: 'Piano',   percent: 16.8 },
+      { color: 'yellow', instrument: 'Strings', percent: 66.9 },
+      { color: 'green',  instrument: 'Flute',   percent: 4.1 },
+      { color: 'blue',   instrument: 'Cello',   percent: 2.2 },
+      { color: 'purple', instrument: 'Synth',   percent: 0.9 },
+      { color: 'white',  instrument: 'Bells',   percent: 0.6 },
+    ],
+  },
+  temperature: {
+    label: 'Temperature',
+    instruments: ['Cello', 'Bass'],
+    description:
+      'Temperature sounds like a conversation between cello (cold) and bass (hot). When they overlap, you hear both.',
+    video: '/videos/temperature_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5147',
+    live: 'https://svs.gsfc.nasa.gov/5147/',
+    colorPercent: [
+      { color: 'red',    instrument: 'Bass',    percent: 22.0 },
+      { color: 'orange', instrument: 'Piano',   percent: 10.0 },
+      { color: 'yellow', instrument: 'Strings', percent: 5.0  },
+      { color: 'green',  instrument: 'Flute',   percent: 3.0  },
+      { color: 'blue',   instrument: 'Cello',   percent: 55.0 },
+      { color: 'purple', instrument: 'Synth',   percent: 3.0  },
+      { color: 'white',  instrument: 'Bells',   percent: 2.0  },
+    ],
+  },
+  pm25: {
+    label: 'Particulate Matter',
+    instruments: ['Piano', 'Synth'],
+    description:
+      'PM2.5 sounds like dust in the air — each orange note is a particle drifting by.',
+    video: '/videos/pm25_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5151',
+    live: 'https://svs.gsfc.nasa.gov/5151/',
+    colorPercent: [],
+  },
+  wind: {
+    label: 'Wind Speed',
+    instruments: ['Flute', 'Bells'],
+    description:
+      'Wind plays the flute. Fast gusts, high notes. Still air, silence.',
+    video: '/videos/wind_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5148',
+    live: 'https://svs.gsfc.nasa.gov/5148/',
+    colorPercent: [],
+  },
+  o3: {
+    label: 'Ozone',
+    instruments: ['Bells', 'Strings'],
+    description: 'Ozone sings in bells, ringing high above the Earth.',
+    video: '/videos/o3_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5152',
+    live: 'https://svs.gsfc.nasa.gov/5152/',
+    colorPercent: [],
+  },
+  precipitation: {
+    label: 'Precipitation',
+    instruments: ['Strings', 'Piano'],
+    description: 'Rain falls on the strings. Each drop is a pizzicato.',
+    video: '/videos/precipitation_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5149',
+    live: 'https://svs.gsfc.nasa.gov/5149/',
+    colorPercent: [],
+  },
+  no2: {
+    label: 'Nitrogen Dioxide',
+    instruments: ['Synth', 'Bass'],
+    description:
+      'Nitrogen dioxide is a city song — purple synth over a burning sky.',
+    video: '/videos/no2_final.mp4',
+    api: 'https://svs.gsfc.nasa.gov/api/5154',
+    live: 'https://svs.gsfc.nasa.gov/5154/',
+    colorPercent: [],
+  },
+};

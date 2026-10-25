@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+body {
+  background: #0a0e27;
+  color: white;
+  /* Основной шрифт оставляем обычным, иначе текст будет нечитаем */
+  font-family: system-ui, -apple-system, sans-serif; 
+}
+
+/* А вот заголовки делаем пиксельными! */
+h1, h2, h3, .pixel-font {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.5;
+  letter-spacing: -0.05em; /* Пиксельные шрифты выглядят лучше с небольшим сжатием */
+}
+
+/* Фокус для доступности */
+:focus-visible { 
+  outline: 2px solid #22d3ee; 
+  outline-offset: 4px; 
+}
+
+/* Звёздный фон */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+/* Анимация появления для элементов */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

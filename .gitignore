@@ -1,0 +1,133 @@
+# ============================================
+# Node.js / React / Vite
+# ============================================
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Кэш и временные файлы сборки
+.cache/
+.temp/
+.tmp/
+*.tsbuildinfo
+
+# ============================================
+# Переменные окружения (СЕКРЕТЫ!)
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+*.env
+
+# ============================================
+# Редакторы и IDE
+# ============================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Python (скрипты сонификации)
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ============================================
+# Медиа-промежуточные файлы (НЕ коммитим тяжёлое)
+# ============================================
+# Промежуточные кадры (сотни PNG — не место в git)
+frames/
+tmp_frames/
+*.wav.tmp
+*.mp4.tmp
+*.mp4
+*.sf2
+*.wav
+
+# Исходные видео NASA (слишком большие, храним локально)
+# Раскомментируй, если видео весят > 100 МБ и не нужны в репо:
+# public/videos/original/
+# public/videos/raw/
+
+# Готовые финальные видео — ОСТАВЛЯЕМ (нужны для сайта)
+#  !public/videos/*_final.mp4
+
+# SoundFont (31 МБ — не место в git, качается отдельно)
+*.sf2
+*.sf3
+soundfont.sf2
+
+# Промежуточные MIDI (генерируются скриптом)
+*.midi.tmp
+midi_output/
+audio_output/
+
+# ============================================
+# OS / macOS
+# ============================================
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+
+# ============================================
+# Vercel / Netlify / Render
+# ============================================
+.vercel
+.netlify
+.render/
+
+# ============================================
+# Прочее
+# ============================================
+*.log
+*.bak
+*.orig
+.coveralls.yml
