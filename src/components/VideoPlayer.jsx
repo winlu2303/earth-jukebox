@@ -6,8 +6,11 @@ export default function VideoPlayer({ src, title, onPlay, onPause }) {
   const videoRef = useRef();
   const { analyzeFrame } = useColorAnalysis();
   const [liveColors, setLiveColors] = useState([]);
+  
+  const isYouTube = src.includes('youtu.be') || src.includes('youtube.com');
 
   useEffect(() => {
+    if (isYouTube) return;
     let animationFrame;
     const tick = () => {
       if (videoRef.current && !videoRef.current.paused) {
@@ -18,15 +21,40 @@ export default function VideoPlayer({ src, title, onPlay, onPause }) {
     };
     tick();
     return () => cancelAnimationFrame(animationFrame);
-  }, [analyzeFrame]);
+  }, [analyzeFrame, isYouTube]);
 
   useEffect(() => {
+    if (isYouTube) return;
     if (videoRef.current) {
       videoRef.current.load();
-      // Автоплей может быть заблокирован браузером, это нормально
       videoRef.current.play().catch(() => {});
     }
-  }, [src]);
+  }, [src, isYouTube]);
+
+  const getYouTubeEmbedUrl = (url) => {
+    const videoId = url.split('/').pop().split('?')[0];
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&loop=1&playlist=${videoId}`;
+  };
+
+  if (isYouTube) {
+    return (
+      <div className="space-y-4 fade-in">
+        <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 aspect-video">
+          <iframe
+            src={getYouTubeEmbedUrl(src)}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+            aria-label={`Sonified video: ${title}`}
+          />
+        </div>
+        <p className="text-center text-xs text-white/40">
+          YouTube streams are not analyzed live. Static color chart below.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4 fade-in">
@@ -36,7 +64,7 @@ export default function VideoPlayer({ src, title, onPlay, onPause }) {
           controls
           loop
           autoPlay
-          muted // <--- ВАЖНО: видео играет без звука!
+          muted
           playsInline
           onPlay={onPlay}
           onPause={onPause}
