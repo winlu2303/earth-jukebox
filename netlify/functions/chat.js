@@ -8,8 +8,7 @@ export default async (req, context) => {
   try {
     const { message } = await req.json();
     
-    // ВПИШИ СЮДА СВОЙ РАБОЧИЙ КЛЮЧ ВМЕСТО ТОГО, ЧТО В КАВЫЧКАХ
-    const apiKey = 'AIzaSyC8R-EfvfAMKItpj7isfvgBUmRZFSeLu90'; 
+    const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey || apiKey.length < 20) {
       return new Response(JSON.stringify({ error: 'API key is missing or invalid' }), {
