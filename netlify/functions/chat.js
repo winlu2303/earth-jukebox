@@ -1,6 +1,5 @@
 // netlify/functions/chat.js
 export default async (req, context) => {
-  // Разрешаем только POST-запросы
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
   }
@@ -8,18 +7,19 @@ export default async (req, context) => {
   try {
     const { message } = await req.json();
     
+    // Берем ключ из переменных окружения Netlify
     const apiKey = process.env.GEMINI_API_KEY;
 
-    if (!apiKey || apiKey.length < 20) {
-      return new Response(JSON.stringify({ error: 'API key is missing or invalid' }), {
+    if (!apiKey) {
+      return new Response(JSON.stringify({ error: 'API key is missing in environment variables' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    // Запрос к Gemini
+    // ОБНОВЛЕННАЯ МОДЕЛЬ: gemini-2.5-flash
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,9 +30,8 @@ export default async (req, context) => {
     );
 
     const data = await response.json();
-    console.log('Ответ от Google:', data); // Чтобы увидеть в логах, что пришло
+    console.log('Ответ от Google:', data); // Для отладки в логах
 
-    // Обработка ошибок от Google
     if (data.error) {
       console.error('Ошибка Gemini:', data.error);
       return new Response(JSON.stringify({ error: data.error.message }), {
@@ -41,7 +40,6 @@ export default async (req, context) => {
       });
     }
 
-    // Успешный ответ
     return new Response(JSON.stringify({ reply: data.candidates[0].content.parts[0].text }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
