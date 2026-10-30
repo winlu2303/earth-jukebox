@@ -37,7 +37,7 @@ export default function ChatBot() {
 
   return (
     <div className="bg-white/5 border border-white/10 rounded-xl p-4 mt-4">
-      <h3 className="text-cyan-300 font-semibold mb-2">Ask the Earth</h3>
+      <h3 className="text-cyan-300 font-semibold mb-2">Ask the Spirit of the Earth</h3>
       <form onSubmit={askEarth} className="flex gap-2">
         <input
           type="text"
