@@ -52,9 +52,12 @@ export default function HowItWorksModal({ open, onClose }) {
         <section>
           <h3 className="font-semibold text-white mb-1">Color → Instrument</h3>
           <ul className="grid grid-cols-2 gap-1 text-sm text-white/80">
-            <li>🔴 Red — Bass</li><li>🟠 Orange — Piano</li>
-            <li>🟡 Yellow — Strings</li><li>🟢 Green — Flute</li>
-            <li>🔵 Blue — Cello</li><li>🟣 Purple — Synth</li>
+            <li>🔴 Red — Bass</li>
+            <li>🟠 Orange — Piano</li>
+            <li>🟡 Yellow — Strings</li>
+            <li>🟢 Green — Flute</li>
+            <li>🔵 Blue — Cello</li>
+            <li>🟣 Purple — Synth</li>
             <li>⚪ White — Bells</li>
           </ul>
         </section>

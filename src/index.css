@@ -4,24 +4,20 @@
 body {
   background: #0a0e27;
   color: white;
-  /* Основной шрифт оставляем обычным, иначе текст будет нечитаем */
   font-family: system-ui, -apple-system, sans-serif; 
 }
 
-/* А вот заголовки делаем пиксельными! */
 h1, h2, h3, .pixel-font {
   font-family: 'Press Start 2P', monospace;
   line-height: 1.5;
   letter-spacing: -0.05em; /* Пиксельные шрифты выглядят лучше с небольшим сжатием */
 }
 
-/* Фокус для доступности */
 :focus-visible { 
   outline: 2px solid #22d3ee; 
   outline-offset: 4px; 
 }
 
-/* Звёздный фон */
 .stars {
   position: fixed;
   top: 0;
@@ -47,7 +43,6 @@ h1, h2, h3, .pixel-font {
   50% { opacity: 0.4; }
 }
 
-/* Анимация появления для элементов */
 .fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }

@@ -1,4 +1,3 @@
-// netlify/functions/chat.js
 export default async (req, context) => {
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
@@ -29,7 +28,7 @@ export default async (req, context) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              contents: [{ parts: [{ text: `Ты - Дух Земли. Отвечай кратко (1-2 предложения) на вопрос: ${message}` }] }]
+              contents: [{ parts: [{ text: `Ты - Дух Земли (милый персонаж). Тебе будут задавать вопросы на разных языках, и твоя задача ответ давать на том языке, на котором тебя спросили. Отвечай кратко (2-3 предложения) на вопрос: ${message}` }] }]
             })
           }
         );

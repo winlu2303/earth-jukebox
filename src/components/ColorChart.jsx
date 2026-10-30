@@ -8,7 +8,6 @@ const COLORS = {
 };
 
 export default function ColorChart({ data = [] }) {
-  // data: [{ color: 'red', percent: 8.5, instrument: 'Bass' }, ...]
   return (
     <section
       aria-labelledby="color-chart-title"

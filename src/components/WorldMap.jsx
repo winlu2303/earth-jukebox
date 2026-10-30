@@ -6,7 +6,6 @@ export default function WorldMap() {
   const audioRef = useRef(null);
   const [activeRegion, setActiveRegion] = useState(null);
 
-  // Привязываем регионы к твоим существующим звукам
   const regions = [
     { id: 'amazon', name: 'Amazon', sound: 'Bass and Piano', file: 'bass.wav', x: '30%', y: '60%', color: '#22c55e' },
     { id: 'sahara', name: 'Sahara', sound: 'Synth', file: 'synth.wav', x: '45%', y: '45%', color: '#f97316' },
@@ -15,11 +14,9 @@ export default function WorldMap() {
   ];
 
   const handleClick = (region) => {
-    // 1. Озвучиваем текст (Screen reader + TTS)
     speak(`You selected the ${region.name}. It sounds like ${region.sound}.`);
     setActiveRegion(region.id);
 
-    // 2. Играем реальный звук
     if (audioRef.current) {
       audioRef.current.src = `/sounds/${region.file}`;
       audioRef.current.play().catch(e => console.log("Autoplay blocked"));

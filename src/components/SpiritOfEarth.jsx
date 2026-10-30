@@ -22,18 +22,14 @@ export default function SpiritOfEarth({ datasetId }) {
     const handleMouseMove = (e) => {
       if (!spiritRef.current) return;
 
-      // Получаем координаты Духа на экране
       const rect = spiritRef.current.getBoundingClientRect();
       const spiritX = rect.left + rect.width / 2;
       const spiritY = rect.top + rect.height / 2;
 
-      // Вычисляем угол от Духа к мышке
       const dx = e.clientX - spiritX;
       const dy = e.clientY - spiritY;
       const angle = Math.atan2(dy, dx) * (180 / Math.PI); // Угол от -180 до 180
 
-      // Определяем направление (8 сторон). 
-      // В файлах north - это фронт (смотрит на нас), south - спина.
       let newDirection = 'north';
       if (angle >= -22.5 && angle < 22.5) newDirection = 'east';        // Мышка справа
       else if (angle >= 22.5 && angle < 67.5) newDirection = 'south-east'; // Справа-снизу

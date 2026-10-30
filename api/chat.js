@@ -1,11 +1,9 @@
-// api/chat.js
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const { message } = req.body;
   
-  // Используем твой ключ. В будущем мы спрячем его в Vercel.
-  const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyC8R-EfvfAMKItpj7isfvgBUmRZFSeLu90'; 
+  const apiKey = process.env.GEMINI_API_KEY; 
 
   try {
     const response = await fetch(
@@ -25,7 +23,7 @@ export default async function handler(req, res) {
     
     const data = await response.json();
     
-    // Если Google вернул ошибку (например, ключ кончился)
+    // Если Google вернул ошибку
     if (data.error) {
       return res.status(500).json({ error: data.error.message });
     }

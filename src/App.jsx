@@ -16,6 +16,7 @@ import LiveCitySound from './components/LiveCitySound';
 import StoryMode from './components/StoryMode';
 import { useA11y } from './components/AccessibilityProvider';
 import { datasets } from './data/datasets';
+import { vibrate } from './utils/haptics';
 
 export default function App() {
   const [dsKey, setDsKey] = useState('co');
@@ -30,6 +31,7 @@ export default function App() {
   const dataset = datasets[dsKey];
 
   const onSelect = (key) => {
+    vibrate([30, 50, 30]); 
     setDsKey(key);
     announce(`Now playing: ${datasets[key].label}. You will hear ${datasets[key].instruments.join(', ')}.`);
   };

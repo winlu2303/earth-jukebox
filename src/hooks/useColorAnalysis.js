@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// 🎨 Палитра: ключ = цвет, value = { rgb, instrument }
 export const COLOR_PALETTE = {
   red:    { rgb: [239, 68, 68],   instrument: 'Bass'    },
   orange: { rgb: [249, 115, 22],  instrument: 'Piano'   },
@@ -27,10 +26,6 @@ function nearestColor(r, g, b) {
   return best;
 }
 
-/**
- * Хук: analyzeFrame(source) → [{ color, instrument, percent }, ...]
- * source: HTMLVideoElement | HTMLImageElement | HTMLCanvasElement
- */
 export function useColorAnalysis() {
   const canvasRef = useRef(null);
   const [result, setResult] = useState([]);

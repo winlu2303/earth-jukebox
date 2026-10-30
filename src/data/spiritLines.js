@@ -1,4 +1,12 @@
 export const spiritLines = {
+  greeting: [
+    "Welcome! I am the Spirit of Earth. What would you like to know about our planet?",
+  ],
+  ask: [
+    "Ask me anything! I can answer absolutely any question about the Earth and its climate.",
+    "I am listening. Ask me anything you want.",
+  ],
+  
   co: [
     "Listen. This is the breath of the Amazon. It is heavy today.",
     "Carbon monoxide is a deep rumble. The redder the map, the louder the bass.",
@@ -25,6 +33,9 @@ export const spiritLines = {
 };
 
 export function pickLine(datasetId) {
-  const arr = spiritLines[datasetId] || ["I am the Spirit of Earth. Listen."];
+  const fallbackKeys = ['greeting', 'ask'];
+  const fallbackKey = fallbackKeys[Math.floor(Math.random() * fallbackKeys.length)];
+  
+  const arr = spiritLines[datasetId] || spiritLines[fallbackKey] || ["I am the Spirit of Earth. Listen."];
   return arr[Math.floor(Math.random() * arr.length)];
 }

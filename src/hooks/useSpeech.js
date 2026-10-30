@@ -7,7 +7,6 @@ export function useSpeech() {
 
   useEffect(() => {
     setSupported('speechSynthesis' in window);
-    // Отключаем TTS, если пользователь prefers-reduced-motion (замена для аудиочувствительных)
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mq.matches) setEnabled(false);
   }, []);

@@ -31,10 +31,10 @@ export default function LiveCitySound() {
       // 3. Определяем звук на основе температуры
       let instrument = '';
       let soundFile = '';
-      if (temp > 20) {
+      if (temp > 22) {
         instrument = 'Bass (Hot)';
         soundFile = '/sounds/bass.wav';
-      } else if (temp > 0) {
+      } else if (temp > 5) {
         instrument = 'Piano (Mild)';
         soundFile = '/sounds/piano.wav';
       } else {

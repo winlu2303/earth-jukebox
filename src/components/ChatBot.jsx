@@ -26,10 +26,10 @@ export default function ChatBot() {
         setAnswer(data.reply);
         speak(data.reply); // Дух Земли озвучивает ответ!
       } else {
-        setAnswer('Прости, я не могу ответить сейчас.');
+        setAnswer('I am sorry, I cannot to answer right now.');
       }
     } catch (err) {
-      setAnswer('Ошибка сети. Проверь подключение.');
+      setAnswer('Network Error. Try again.');
     } finally {
       setLoading(false);
     }
