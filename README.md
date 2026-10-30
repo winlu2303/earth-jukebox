@@ -6,7 +6,12 @@ Earth Jukebox is an interactive, accessible web platform that translates NASA's 
 
 ### ⚡ Tech Stack
 
-![React 18, Vite, Tailwind CSS, Netlify, Gemini AI, Web Speech API, Python, OpenCV, FluidSynth](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20Netlify%20%7C%20Gemini%20%7C%20Python-cyan)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-deployed-00C7B7?logo=netlify&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-AI-8E75B2?logo=google&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 
 | Parameter | Value |
 |---|---|
@@ -32,7 +37,8 @@ Earth Jukebox is an interactive, accessible web platform that translates NASA's 
 9. [Step-by-Step Testing Scenario](#9-step-by-step-testing-scenario)
 10. [Known Limitations](#10-known-limitations)
 11. [Scalability (5-Year Plan)](#11-scalability-5-year-plan)
-12. [Team Contacts](#12-team-contacts)
+12. [Custom API](#12-custom-api)
+13. [Security & Data Privacy](#13-security--data-privacy)
 
 ---
 
@@ -63,7 +69,7 @@ By listening to the music, users can "hear" the urgency of climate change. A hea
 1. The user opens Earth Jukebox.
 2. Clicks the **"🔊 Audio Guide"** button to hear how the site works.
 3. Selects a dataset (e.g., Carbon Monoxide).
-4. The **Spirit of Earth** (an animated pixel character) tells them what they are about to hear.
+4. The **Spirit of Earth** (an animated pixel character) tells people what they are about to hear.
 5. The user plays the sonified video and hears the data.
 6. They can use the **Instrument Mixer** to isolate specific colors (e.g., mute the bass to hear only the piano).
 7. They can ask the **AI Chatbot** questions about the climate data.
