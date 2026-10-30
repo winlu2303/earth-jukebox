@@ -1,8 +1,32 @@
 # 🌍 Earth Jukebox — NASA Data Sonification
 
-**Turning Climate Data into Music for Blind and Low-Vision Users**
+## 🌍 Turning Climate Data into Music
 
-Earth Jukebox is an interactive, accessible web platform that translates NASA's Earth observation data into immersive music. By mapping specific colors from satellite visualizations to musical instruments, we make complex climate data accessible to blind, visually impaired, and auditory learners.
+**Earth Jukebox turns NASA Earth observation data into music. Each color in a NASA satellite visualization becomes a musical instrument — so you can hear the climate, not just see it.**
+
+Earth Jukebox is an interactive, accessible web platform that translates NASA's Earth observation data into immersive music. By mapping specific colors from satellite visualizations to musical instruments, we turn complex climate data into something you can listen to, feel, and remember.
+
+### Who it's for
+
+We built Earth Jukebox with **blind and low-vision users** in mind — for them, a satellite image is a wall, and sound is the door. But accessibility, done well, is universal. The same design that makes climate data audible for blind users also serves:
+
+- **Blind and low-vision users** — the core motivation: climate data becomes perceivable without sight.
+- **Auditory learners** — people who understand and remember better through sound than through text or charts.
+- **People with dyslexia and other reading differences** — for whom dense text and complex graphs are a barrier, while sound is a clear channel.
+- **Children and students** — music as a gateway into science, a way to make abstract data concrete and memorable.
+- **Anyone overwhelmed by visual noise** — a second channel for understanding our planet, for focus, for curiosity, for calm.
+
+### Why it matters
+
+Climate data is one of the most important bodies of knowledge we have — and one of the least accessible. Most of it lives in visualizations that require sight, literacy, and background knowledge to interpret. Earth Jukebox lowers that barrier on three fronts at once:
+
+1. **Accessibility** — it opens NASA's climate data to people who cannot see it.
+2. **Science communication** — it turns abstract numbers into an emotional, memorable experience, advancing public understanding of climate science.
+3. **Education** — it gives teachers, parents, and students a new way to engage with Earth science, one that works across ages and learning styles.
+
+> **Accessible by design. Useful for everyone.**
+
+---
 
 ### ⚡ Tech Stack
 
