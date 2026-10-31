@@ -17,6 +17,8 @@ import StoryMode from './components/StoryMode';
 import { useA11y } from './components/AccessibilityProvider';
 import { datasets } from './data/datasets';
 import { vibrate } from './utils/haptics';
+import FrameGallery from './components/FrameGallery';
+import { datasets } from './data/datasets';
 
 export default function App() {
   const [dsKey, setDsKey] = useState('co');
@@ -120,6 +122,7 @@ export default function App() {
           <div className="space-y-4">
             <DatasetInfoPanel dataset={dataset} />
             <ColorChart data={dataset.colorPercent} />
+            <FrameGallery datasetKey={activeDatasetId} frames={datasets[activeDatasetId]?.frames ?? []} />
             
             {/* Новые компоненты */}
             <GuessGame />

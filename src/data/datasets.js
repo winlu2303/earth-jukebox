@@ -25,6 +25,36 @@ export const datasets = {
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Rare anomaly',              sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Data gap / peak',           sound: '/sounds/bells.wav' },
     ],
+    frames: [
+      {
+        src: '/frames/co/frame_01.jpg',
+        alt: 'Carbon monoxide concentration over East Asia, early in the sequence',
+        caption: 'Morning buildup',
+        dominantInstrument: 'Piano',
+        description: 'As cities wake up, carbon monoxide rises. The piano chords grow denser, reflecting the morning traffic and industrial activity.',
+      },
+      {
+        src: '/frames/co/frame_02.jpg',
+        alt: 'Carbon monoxide plumes spreading across the continent',
+        caption: 'Plume spread',
+        dominantInstrument: 'Strings',
+        description: 'Pollution plumes drift across borders. The strings carry the long, sustained note of a problem that does not stay where it started.',
+      },
+      {
+        src: '/frames/co/frame_03.jpg',
+        alt: 'Wildfire smoke contributing to carbon monoxide levels',
+        caption: 'Wildfire contribution',
+        dominantInstrument: 'Bass',
+        description: 'Wildfires add a deep, rumbling bass layer — the sound of burning forests entering the atmosphere.',
+      },
+      {
+        src: '/frames/co/frame_04.jpg',
+        alt: 'Evening carbon monoxide levels settling over the region',
+        caption: 'Evening settle',
+        dominantInstrument: 'Bass',
+        description: 'As the day ends, the bass persists. Carbon monoxide does not disappear at sunset — it lingers, a low note under everything.',
+      },
+    ],
   },
 
   temperature: {
@@ -52,6 +82,36 @@ export const datasets = {
       { hex: '#3b82f6', instrument: 'Cello',   meaning: 'Freezing cold',             sound: '/sounds/cello.wav' },
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Temperature anomaly',       sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Ice / snow peak',           sound: '/sounds/bells.wav' },
+    ],
+    frames: [
+      {
+        src: '/frames/temperature/frame_01.jpg',
+        alt: 'Global temperature distribution, early in the sequence',
+        caption: 'Polar cold',
+        dominantInstrument: 'Cello',
+        description: 'The poles breathe out a long, mournful cello note. Cold dominates the top and bottom of the planet, while the tropics hold a warmer bass underneath.',
+      },
+      {
+        src: '/frames/temperature/frame_02.jpg',
+        alt: 'Warm tropical bands and cool mid-latitudes',
+        caption: 'Tropical heat',
+        dominantInstrument: 'Bass',
+        description: 'The tropics glow with a deep bass. Heat is not a background — it is a presence, pulsing through the equator.',
+      },
+      {
+        src: '/frames/temperature/frame_03.jpg',
+        alt: 'Temperature clash between heatwaves and cold fronts',
+        caption: 'Heat meets cold',
+        dominantInstrument: 'Cello',
+        description: 'When warm and cold air meet, the music clashes. Cello and bass overlap — not harmony, but tension. This is where weather is born.',
+      },
+      {
+        src: '/frames/temperature/frame_04.jpg',
+        alt: 'Late-sequence temperature pattern showing extremes',
+        caption: 'Extremes',
+        dominantInstrument: 'Bass',
+        description: 'The bass grows louder at the edges. Extreme heat and extreme cold are both intensifying — the music reflects a climate out of balance.',
+      },
     ],
   },
 
@@ -81,6 +141,36 @@ export const datasets = {
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Industrial source',         sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Peak concentration',        sound: '/sounds/bells.wav' },
     ],
+    frames: [
+      {
+        src: '/frames/pm25/frame_01.jpg',
+        alt: 'Particulate matter concentration over industrial regions, early in the sequence',
+        caption: 'Dust rises',
+        dominantInstrument: 'Piano',
+        description: 'Each piano note is a particle — a single speck of dust lifted into the air. At first, they are scattered, almost gentle.',
+      },
+      {
+        src: '/frames/pm25/frame_02.jpg',
+        alt: 'Thick haze over densely populated areas',
+        caption: 'Haze thickens',
+        dominantInstrument: 'Piano',
+        description: 'The notes grow denser. Over cities, the air fills with particles. What sounds like music is also a warning: this is what you breathe.',
+      },
+      {
+        src: '/frames/pm25/frame_03.jpg',
+        alt: 'Industrial and wildfire sources contributing to PM2.5',
+        caption: 'Sources',
+        dominantInstrument: 'Synth',
+        description: 'The synth enters — a low, buzzing undertone. Factories, vehicles, wildfires. Every source has a voice in the haze.',
+      },
+      {
+        src: '/frames/pm25/frame_04.jpg',
+        alt: 'Late-sequence particulate matter pattern over continents',
+        caption: 'Suffocating layer',
+        dominantInstrument: 'Piano',
+        description: 'The piano and synth overlap. The atmosphere feels heavy. The music is beautiful, but it carries the weight of what it represents.',
+      },
+    ],
   },
 
   wind: {
@@ -108,6 +198,36 @@ export const datasets = {
       { hex: '#3b82f6', instrument: 'Cello',   meaning: 'Calm air',                  sound: '/sounds/cello.wav' },
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Wind shear',                sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Still / no data',           sound: '/sounds/bells.wav' },
+    ],
+    frames: [
+      {
+        src: '/frames/wind/frame_01.jpg',
+        alt: 'Global wind speed pattern, early in the sequence',
+        caption: 'First breath',
+        dominantInstrument: 'Flute',
+        description: 'The flute starts softly. Light winds move across the oceans — the planet taking its first breath of the day.',
+      },
+      {
+        src: '/frames/wind/frame_02.jpg',
+        alt: 'Jet stream and high-altitude winds',
+        caption: 'Jet stream',
+        dominantInstrument: 'Flute',
+        description: 'High above, the jet stream races. The flute climbs into fast, high notes. This is the wind that shapes weather across continents.',
+      },
+      {
+        src: '/frames/wind/frame_03.jpg',
+        alt: 'Storm systems and strong gusts',
+        caption: 'Gusts',
+        dominantInstrument: 'Bells',
+        description: 'Bells ring unpredictably — the direction shifts. Storms form where wind meets heat and moisture. The music becomes chaotic.',
+      },
+      {
+        src: '/frames/wind/frame_04.jpg',
+        alt: 'Late-sequence wind pattern over the globe',
+        caption: 'Stillness',
+        dominantInstrument: 'Cello',
+        description: 'The flute fades. What remains is a low cello note — the eerie stillness of air that should be moving. A warming planet, holding its breath.',
+      },
     ],
   },
 
@@ -137,6 +257,36 @@ export const datasets = {
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Ozone hole / anomaly',       sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Stratospheric peak',         sound: '/sounds/bells.wav' },
     ],
+    frames: [
+      {
+        src: '/frames/o3/frame_01.jpg',
+        alt: 'Stratospheric ozone layer, early in the sequence',
+        caption: 'The shield',
+        dominantInstrument: 'Synth',
+        description: 'A violet synth hums — the ozone layer, a shield we never see but always need. It sits high above us, quiet and constant.',
+      },
+      {
+        src: '/frames/o3/frame_02.jpg',
+        alt: 'Ozone concentration over the poles',
+        caption: 'Polar ozone',
+        dominantInstrument: 'Synth',
+        description: 'Over the poles, the synth deepens. This is where the ozone hole forms — a gap in the shield, and a warning in sound.',
+      },
+      {
+        src: '/frames/o3/frame_03.jpg',
+        alt: 'Ground-level ozone forming over industrial regions',
+        caption: 'Ground ozone',
+        dominantInstrument: 'Bells',
+        description: 'Bells ring sharply. At ground level, ozone is not a shield — it is smog. The same molecule, a different danger.',
+      },
+      {
+        src: '/frames/o3/frame_04.jpg',
+        alt: 'Late-sequence ozone pattern over the globe',
+        caption: 'Fragile balance',
+        dominantInstrument: 'Synth',
+        description: 'The synth returns, softer now. Ozone is a fragile balance — protective above, toxic below. The music holds both truths at once.',
+      },
+    ],
   },
 
   precipitation: {
@@ -165,6 +315,36 @@ export const datasets = {
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Storm cell',                 sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Snow / ice',                 sound: '/sounds/bells.wav' },
     ],
+    frames: [
+      {
+        src: '/frames/precipitation/frame_01.jpg',
+        alt: 'Global precipitation pattern, early in the sequence',
+        caption: 'First drops',
+        dominantInstrument: 'Cello',
+        description: 'A low cello note — the ocean, waiting. The first rain begins to fall over the tropics, soft and steady.',
+      },
+      {
+        src: '/frames/precipitation/frame_02.jpg',
+        alt: 'Heavy rainfall over tropical regions',
+        caption: 'Monsoon',
+        dominantInstrument: 'Cello',
+        description: 'The cello deepens. Monsoon rains sweep across continents. Life depends on this rhythm — and so does the music.',
+      },
+      {
+        src: '/frames/precipitation/frame_03.jpg',
+        alt: 'Storm systems and extreme precipitation',
+        caption: 'Storms',
+        dominantInstrument: 'Flute',
+        description: 'The flute joins — sharp, urgent. Storms form where heat and moisture collide. Each note is a drop, and the drops are many.',
+      },
+      {
+        src: '/frames/precipitation/frame_04.jpg',
+        alt: 'Snow and ice at higher latitudes',
+        caption: 'Snow',
+        dominantInstrument: 'Bells',
+        description: 'At the poles, rain becomes snow. Bells ring softly. The water cycle ends and begins again — a quiet, cold note.',
+      },
+    ],
   },
 
   no2: {
@@ -192,6 +372,36 @@ export const datasets = {
       { hex: '#3b82f6', instrument: 'Cello',   meaning: 'Low NO2',                    sound: '/sounds/cello.wav' },
       { hex: '#a855f7', instrument: 'Synth',   meaning: 'Urban/industrial plume',     sound: '/sounds/synth.wav' },
       { hex: '#ffffff', instrument: 'Bells',   meaning: 'Peak emission',              sound: '/sounds/bells.wav' },
+    ],
+    frames: [
+      {
+        src: '/frames/no2/frame_01.jpg',
+        alt: 'Nitrogen dioxide concentration over urban areas, early in the sequence',
+        caption: 'City wakes',
+        dominantInstrument: 'Flute',
+        description: 'The flute begins — a background hum of NO2. Cities stir. Traffic starts. The air fills with a green trace of nitrogen dioxide.',
+      },
+      {
+        src: '/frames/no2/frame_02.jpg',
+        alt: 'NO2 plumes over industrial corridors',
+        caption: 'Industrial pulse',
+        dominantInstrument: 'Flute',
+        description: 'The flute grows denser. Factories and highways pulse with emissions. The sound is steady, almost rhythmic — the heartbeat of a city.',
+      },
+      {
+        src: '/frames/no2/frame_03.jpg',
+        alt: 'High NO2 concentrations over densely populated regions',
+        caption: 'Peak traffic',
+        dominantInstrument: 'Flute',
+        description: 'Rush hour. The flute reaches its highest note. NO2 peaks over megacities — a sound that is not just music, but a measure of the air.',
+      },
+      {
+        src: '/frames/no2/frame_04.jpg',
+        alt: 'Late-sequence NO2 pattern as night falls',
+        caption: 'Night settles',
+        dominantInstrument: 'Bells',
+        description: 'Night falls. Traffic fades. The bells ring softly — the city resting, the air clearing, a quiet moment before the cycle begins again.',
+      },
     ],
   },
 };
