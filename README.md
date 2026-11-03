@@ -25,7 +25,7 @@ Climate data is one of the most important bodies of knowledge we have — and on
 3. **Education** — it gives teachers, parents, and students a new way to engage with Earth science, one that works across ages and learning styles.
 
 > **Accessible by design. Useful for everyone.**
-> **[Download the project presentation (PDF)](./docs/Earth-Jukebox-Presentation.pdf)**  
+> **[Download the project presentation (PDF)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)**  
 > Pitch deck for NASA Space Apps Challenge 2026
 
 ---
@@ -38,8 +38,8 @@ Climate data is one of the most important bodies of knowledge we have — and on
 ![Netlify](https://img.shields.io/badge/Netlify-deployed-00C7B7?logo=netlify&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-AI-8E75B2?logo=google&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-[![Presentation](https://img.shields.io/badge/📊_Presentation-PDF-EF4444?style=for-the-badge)](./docs/Earth-Jukebox-Presentation.pdf)
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-earth--jukebox.netlify.app-22D3EE?style=for-the-badge)](https://earth-jukebox.netlify.app)
+[![Presentation](https://img.shields.io/badge/📊_Presentation-PDF-EF4444?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)
+
 
 | Parameter | Value |
 |---|---|
