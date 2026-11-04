@@ -1,6 +1,6 @@
 # 🌍 Earth Jukebox — NASA Data Sonification
 
-## 🌍 Turning Climate Data into Music
+## 🌍 Turning Climate Data into Music 
 
 **Earth Jukebox turns NASA Earth observation data into music. Each color in a NASA satellite visualization becomes a musical instrument — so you can hear the climate, not just see it.**
 
