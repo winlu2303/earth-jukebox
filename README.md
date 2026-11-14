@@ -38,10 +38,12 @@ Climate data is one of the most important bodies of knowledge we have — and on
 ![Netlify](https://img.shields.io/badge/Netlify-deployed-00C7B7?logo=netlify&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-AI-8E75B2?logo=google&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-[![Presentation](https://img.shields.io/badge/📊_Presentation-PDF-EF4444?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)
-![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen)
-[![Tests](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml/badge.svg)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
-![Coverage](https://img.shields.io/badge/coverage-sonifyCity%20100%25-brightgreen)
+[![Full Presentation](https://img.shields.io/badge/📊_Full_Presentation-PDF-EF4444?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)
+[![Jury Deck](https://img.shields.io/badge/🎯_Jury_Deck-7_slides-22D3EE?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox-jury.pdf)
+[![Demo Video](https://img.shields.io/badge/🎬_Demo_Video-coming_soon-FF0000?style=for-the-badge&logo=youtube)](https://github.com/winlu2303/earth-jukebox)
+[![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/badge/coverage-sonifyCity%20100%25-brightgreen)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
+[![Load Test](https://img.shields.io/badge/k6-100%25%20success%20(50%20VU)-brightgreen)](https://github.com/winlu2303/earth-jukebox/tree/main/tests/load)
 
 
 | Parameter | Value |
@@ -70,6 +72,8 @@ Climate data is one of the most important bodies of knowledge we have — and on
 11. [Scalability (5-Year Plan)](#11-scalability-5-year-plan)
 12. [Custom API](#12-custom-api)
 13. [Security & Data Privacy](#13-security--data-privacy)
+14. [Testing](#14-testing)
+15. [Demo](#15-demo)
 
 ---
 
@@ -87,6 +91,14 @@ Climate change data from NASA is typically presented as complex heatmaps, graphs
 - ⚪ **White** → Bells
 
 By listening to the music, users can "hear" the urgency of climate change. A heavy, suffocating bass means high pollution. A chaotic clash of instruments means extreme weather.
+
+
+### Impact in numbers
+
+- **1.3 billion people** worldwide live with some form of disability (WHO). For many of them, visual climate data is a wall.
+- **300+ million** are blind or low-vision — our core audience.
+- **20+ NASA GMAO datasets** are publicly available, but most exist only as heatmaps and animations. Earth Jukebox turns any of them into music.
+- **1 in 10 people** has dyslexia. Dense charts and text-heavy reports are a barrier; sound is a clear channel.
 
 ---
 
@@ -118,7 +130,9 @@ We have implemented 15+ distinct features, categorized by purpose.
 | **Live Color Analysis** | A real-time canvas analyzer (`useColorAnalysis.js`) that displays the percentage of each color in the current frame. |
 | **Instrument Isolation** | A mixer that allows users to mute/unmute specific instruments (Bass, Piano, Strings, etc.) to understand individual data layers. |
 | **Interactive World Map** | Clickable regions (Amazon, Sahara, Siberia, Arctic) that play localized soundscapes. |
-| **City Sonification** | Real-time weather data from Open-Meteo is converted into music (e.g., "Moscow today sounds like a cold cello"). |
+| **Live City Sonification** | Fetches real-time weather from Open-Meteo (temperature, rain, wind), maps it to the 7 instruments, and plays it. Full country/city list from `countries.min.json` with Nominatim geocoding and cache. |
+| **Visual Frames Gallery** | For each dataset, 4 key frames are extracted from the NASA video and shown as a gallery. Clicking a frame plays the dominant instrument and speaks the description via Web Speech API. |
+
 
 ### ♿ Accessibility (Core Theme)
 | Feature | Description |
@@ -190,6 +204,8 @@ Our application relies on several external services, some of which are free and 
 | **Open-Meteo API** | Live weather data for "City Sonification". | GET request to `api.open-meteo.com/v1/forecast`. | If the API is down, the user receives a "Could not fetch weather data" message. |
 | **Netlify Functions** | Serverless backend for the chatbot. | Deployed as a Node.js serverless function at `/.netlify/functions/chat`. | If the function crashes, the frontend catches the error and displays "Error connecting to the server". |
 | **NASA SVS / GMAO** | Source of raw satellite data. | Downloaded manually and processed with Python. | The app uses pre-processed videos, so it is not dependent on the live NASA API. |
+| **Open-Meteo Geocoding** | Converts city name → lat/lng for City Sonification. | GET request to `geocoding-api.open-meteo.com/v1/search`. | If city not found → fallback to latitude-based estimate. |
+| **NASA POWER API** | Real temperature, precipitation, and wind for any point on Earth. | GET request to `power.larc.nasa.gov/api/temporal/daily/point`. | If API is down → estimate by latitude (`25 - |lat| * 0.4`). |
 
 ---
 
@@ -265,6 +281,11 @@ We have prepared a detailed checklist for the jury to verify every feature of th
 | 15 | Click the **"🌍 Story Mode"** button in the header. | | `StoryMode.jsx` |
 | 16 | Scroll down to read the story of Mia. | The text fades in as you scroll. | Framer Motion |
 | 17 | Press the **"🔊 Voice ON/OFF"** toggle. | The voice guide is disabled/enabled. | `useSpeech.js` |
+| 18 | Scroll to **"Visual Frames"** (under the color chart). | 4 key frames from the current dataset are shown. | `FrameGallery.jsx` |
+| 19 | Click on the first frame (e.g., "Polar cold"). | The description expands, the browser speaks it, and the dominant instrument plays. | `FrameGallery.jsx` + `useSpeech.js` |
+| 20 | Scroll to **"City Sonification"**. | Two dropdowns: Country and City. | `LiveCitySound.jsx` |
+| 21 | Select **"Russia" → "Moscow"** and click **"Hear it"**. | The card shows 📍 Moscow, 🌡️ ~5 °C, 💧 0 mm, 💨 ~3 m/s, and "♪ Sounds like: Strings — cool". The cello/strings plays. | `LiveCitySound.jsx` + Open-Meteo |
+| 22 | Type `Nowhereville123` and click **"Hear it"**. | The component shows "Could not reach weather data... Using estimated values..." — no crash. | `LiveCitySound.jsx` fallback |
 
 ---
 
@@ -280,15 +301,19 @@ We want to be transparent about the current limitations of our MVP.
    - On the free tier, Google may return a `503 Service Unavailable` error during high demand.
    - **Mitigation:** We implemented a fallback loop across 3 different models. If one fails, the system automatically tries the next one.
 
-3. **NASA GIBS WMS Tiles:**
-   - The `LiveMap` component uses NASA GIBS tiles, which are sometimes blocked by regional firewalls or slow to load.
-   - **Impact:** The "Live NASA Data" tab may show a blank map. The "Sonified Video" tab is the primary, stable feature.
+3. **NASA GIBS — migrated to WMTS:**
+   - The `LiveMap` component originally used WMS, which was often blocked. We migrated to **WMTS** (EPSG:4326), which is more reliable. The map starts at `zoom: 2` because GIBS returns blank tiles at zoom 0.
+   - **Impact:** The "Live NASA Data" tab works on most networks. If a region blocks `gibs.earthdata.nasa.gov`, the "Sonified Video" tab remains the primary, stable feature.
 
-4. **Web Speech API Inconsistencies:**
+4. **Nominatim geocoding — replaced by Open-Meteo:**
+   - During load testing, Nominatim (OpenStreetMap) returned only **3% success** from Russia (740 of 764 requests failed). This is an external limitation, not a code bug.
+   - **Mitigation:** We migrated to **Open-Meteo Geocoding**, which works reliably. The k6 load test now shows **100% success** (see Section 14).
+
+5. **Web Speech API Inconsistencies:**
    - The voice synthesis depends on the user's operating system. Some browsers (e.g., Safari on macOS) may have robotic-sounding voices.
    - **Impact:** The quality of the voice guide may vary.
 
-5. **Haptics on Desktop:**
+6. **Haptics on Desktop:**
    - The vibration API (`navigator.vibrate`) only works on mobile devices. On desktop, it is silently ignored.
 
 ---
@@ -377,4 +402,95 @@ We take the security of our users and our API keys seriously.
 
 ---
 
+## 14. Testing
+
+We test before we ship. Every commit runs through CI, every pure function has unit tests, and the live APIs are stress-tested with k6.
+
+### 14.1. Unit & Integration Tests (Vitest)
+
+We use **Vitest** + **React Testing Library**. The full suite runs in ~500 ms.
+
+| Test file | Tests | What it covers |
+|---|---|---|
+| `tests/unit/sonifyCity.test.js` | 11 | Every temperature band (−5°C → Cello, 10°C → Strings, 20°C → Piano, 30°C → Bass, 40°C → Bass + Synth), every rain band (light/heavy), every wind band (breeze/strong), and no-duplicate logic. |
+| `tests/integration/LiveCitySound.test.jsx` | 4 | Renders input + button, fetches weather (mocked), shows sonification summary, shows fallback for unknown city, announces via `aria-live`. |
+
+**Run locally:**
+
+```bash
+npm test              # 15 tests, ~500 ms
+npm run test:coverage # with coverage report
+```
+Coverage: utils/sonifyCity.js — 100% (all branches).
+
+### 14.2. Load Testing (k6)
+
+We ran three load tests on the City Sonification feature, 50 virtual users, 2 minutes each, 1530 requests.
+
+| Target | Success | Notes |
+|---|---|---|
+| Nominatim geocoding + NASA POWER | 51.5% (1576 / 3060) | NASA POWER: 99% ✓. Nominatim: 3% ✗ — blocked from Russia. |
+| Open-Meteo Geocoding + Forecast | ~97% | Migrated to Open-Meteo. Minor timeouts on cold start. |
+| Open-Meteo Geocoding + Forecast | 100% (3060 / 3060) | All checks passed. p(95) = < 2 s. | 
+
+**What we learned:** the 1st run exposed a real external limitation (Nominatim blocks RF). We didn't hide it — we replaced the service, re-ran the test, and shipped with 100%. This is what "tested before production" looks like.
+
+**Run locally:**
+```bash
+k6 run tests/load/live-city.js
+```
+
+### 14.3. CI (GitHub Actions)
+
+Every push to main runs the full Vitest suite via .github/workflows/test.yml. The badge in the header is live — if CI fails, it turns red.
+
+```yaml
+name: Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - run: npm test
+```
+---
+
+## 15. Demo
+
+| Asset | Link | Notes |
+|---|---|---|
+| **Full Presentation** | [docs/earth-jukebox.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf) | For open-source community and full context. |
+| **Jury Deck (7 slides)** | [docs/earth-jukebox-jury.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox-jury.pdf) | For NASA Space Apps judging. 7 slides, English. |
+| **Demo Video (30 s)** | _coming soon_ | Recorded after the final MVP deploy on Netlify. Will be linked here and in the badges. |
+
+> **Note for judges:** the demo video will be a public YouTube link with no login required, per the Project Submission Guide.
+
+---
+
 We are open to feedback, collaboration, and scaling this project to new heights. Thank you to the NASA Space Apps Challenge organizers for the opportunity to make science accessible to everyone.
+
+---
+
+## 16. License
+
+MIT License — see [LICENSE](./LICENSE) for details.
+
+Copyright (c) 2026 Sofia-Luna Winter / MindWave.
+
+This means: **you can use, modify, and share this code** as long as you keep the original copyright notice. Your authorship is preserved.
+
+## 17. Acknowledgments
+
+- **NASA Space Apps Challenge 2026** — for the challenge, the data, and the platform.
+- **NASA GMAO** and **NASA SVS** — for the Earth observation data and visualizations.
+- **NASA POWER** and **Open-Meteo** — for free, open weather and climate APIs.
+- **Google Gemini** — for the AI chatbot backend.
+- **The open-source community** — React, Vite, Tailwind, Leaflet, Framer Motion, Recharts, Vitest, k6.
+
+---
+
+**Made with ❤️ for everyone who hears the world differently.**
