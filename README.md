@@ -440,23 +440,6 @@ We ran three load tests on the City Sonification feature, 50 virtual users, 2 mi
 k6 run tests/load/live-city.js
 ```
 
-### 14.3. CI (GitHub Actions)
-
-Every push to main runs the full Vitest suite via .github/workflows/test.yml. The badge in the header is live — if CI fails, it turns red.
-
-```yaml
-name: Tests
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20', cache: 'npm' }
-      - run: npm ci
-      - run: npm test
-```
 ---
 
 ## 15. Demo
