@@ -1,4 +1,4 @@
-# 🌍 Earth Jukebox — NASA Data Sonification
+# Earth Jukebox: NASA Data For Everyone
 
 ## 🌍 Turning Climate Data into Music
 
