@@ -14,11 +14,10 @@ import GuessGame from './components/GuessGame';
 import WorldMap from './components/WorldMap';
 import LiveCitySound from './components/LiveCitySound';
 import StoryMode from './components/StoryMode';
+import FrameGallery from './components/FrameGallery';
 import { useA11y } from './components/AccessibilityProvider';
 import { datasets } from './data/datasets';
 import { vibrate } from './utils/haptics';
-import FrameGallery from './components/FrameGallery';
-import { datasets } from './data/datasets';
 
 export default function App() {
   const [dsKey, setDsKey] = useState('co');
@@ -33,35 +32,52 @@ export default function App() {
   const dataset = datasets[dsKey];
 
   const onSelect = (key) => {
-    vibrate([30, 50, 30]); 
+    vibrate([30, 50, 30]);
     setDsKey(key);
-    announce(`Now playing: ${datasets[key].label}. You will hear ${datasets[key].instruments.join(', ')}.`);
+    announce(
+      `Now playing: ${datasets[key].label}. You will hear ${datasets[key].instruments.join(', ')}.`
+    );
   };
 
   return (
     <main className="min-h-screen bg-[#0a0e27] text-white relative">
       <div className="stars" />
-      
+
       <div className="relative z-10">
         <header className="pt-12 pb-8 text-center fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
             Earth Jukebox
           </h1>
           <p className="text-xl text-white/60">Turn NASA Data into Music</p>
-          <p className="text-sm text-white/40 mt-2">by MindWave · NASA Space Apps Challenge 2026</p>
+          <p className="text-sm text-white/40 mt-2">
+            by MindWave · NASA Space Apps Challenge 2026
+          </p>
 
           <nav className="flex flex-wrap justify-center gap-2 mt-6">
-            <button onClick={() => setShowStory(true)} className="px-4 py-2 rounded bg-purple-500/20 border border-purple-400/40 hover:bg-purple-500/30 text-sm font-medium">
+            <button
+              onClick={() => setShowStory(true)}
+              className="px-4 py-2 rounded bg-purple-500/20 border border-purple-400/40 hover:bg-purple-500/30 text-sm font-medium"
+            >
               🌍 Story Mode
             </button>
-            <button onClick={() => setShowHiw(true)} className="px-4 py-2 rounded bg-white/10 hover:bg-white/20 text-sm">
+            <button
+              onClick={() => setShowHiw(true)}
+              className="px-4 py-2 rounded bg-white/10 hover:bg-white/20 text-sm"
+            >
               How it works
             </button>
-            <button onClick={() => setShowAbout(true)} className="px-4 py-2 rounded bg-white/10 hover:bg-white/20 text-sm">
+            <button
+              onClick={() => setShowAbout(true)}
+              className="px-4 py-2 rounded bg-white/10 hover:bg-white/20 text-sm"
+            >
               About
             </button>
             <button
-              onClick={() => announce("Welcome to Earth Jukebox. This site turns NASA climate data into music. Use the buttons below to select a dataset. Press play on the video. You can toggle voice guide here.")}
+              onClick={() =>
+                announce(
+                  'Welcome to Earth Jukebox. This site turns NASA climate data into music. Use the buttons below to select a dataset. Press play on the video. You can toggle voice guide here.'
+                )
+              }
               className="px-4 py-2 rounded bg-cyan-500/20 border border-cyan-400/40 hover:bg-cyan-500/30 text-sm"
             >
               🔊 Audio Guide
@@ -72,7 +88,12 @@ export default function App() {
         <section className="max-w-6xl mx-auto px-6 mb-4">
           <div className="flex flex-wrap justify-center gap-3">
             {Object.entries(datasets).map(([key, ds]) => (
-              <DatasetButton key={key} active={key === dsKey} label={ds.label} onClick={() => onSelect(key)} />
+              <DatasetButton
+                key={key}
+                active={key === dsKey}
+                label={ds.label}
+                onClick={() => onSelect(key)}
+              />
             ))}
             <button
               onClick={() => setEnabled(!enabled)}
@@ -87,10 +108,24 @@ export default function App() {
 
         <section className="max-w-6xl mx-auto px-6 mb-6">
           <div className="flex justify-center gap-3">
-            <button onClick={() => setMode('video')} className={`px-6 py-2.5 rounded-xl border text-sm font-medium ${mode === 'video' ? 'bg-white/10 border-white/40 shadow-lg' : 'bg-white/5 border-white/10'}`}>
+            <button
+              onClick={() => setMode('video')}
+              className={`px-6 py-2.5 rounded-xl border text-sm font-medium ${
+                mode === 'video'
+                  ? 'bg-white/10 border-white/40 shadow-lg'
+                  : 'bg-white/5 border-white/10'
+              }`}
+            >
               🎬 Sonified Video
             </button>
-            <button onClick={() => setMode('live')} className={`px-6 py-2.5 rounded-xl border text-sm font-medium ${mode === 'live' ? 'bg-white/10 border-white/40 shadow-lg' : 'bg-white/5 border-white/10'}`}>
+            <button
+              onClick={() => setMode('live')}
+              className={`px-6 py-2.5 rounded-xl border text-sm font-medium ${
+                mode === 'live'
+                  ? 'bg-white/10 border-white/40 shadow-lg'
+                  : 'bg-white/5 border-white/10'
+              }`}
+            >
               🛰️ Live NASA Data
             </button>
           </div>
@@ -111,25 +146,39 @@ export default function App() {
               <LiveMap datasetId={dsKey} />
             )}
             <InstrumentMixer muted={muted} setMuted={setMuted} isPlaying={isVideoPlaying} />
-            
-            {/* Ссылки на NASA */}
+
             <div className="flex flex-wrap gap-3 mt-4">
-              <a href={dataset.live} target="_blank" rel="noreferrer" className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm hover:bg-white/10">🛰️ NASA SVS</a>
-              <a href={dataset.api} target="_blank" rel="noreferrer" className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm hover:bg-white/10">📊 API Data</a>
+              <a
+                href={dataset.live}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm hover:bg-white/10"
+              >
+                🛰️ NASA SVS
+              </a>
+              <a
+                href={dataset.api}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm hover:bg-white/10"
+              >
+                📊 API Data
+              </a>
             </div>
           </div>
 
           <div className="space-y-4">
             <DatasetInfoPanel dataset={dataset} />
             <ColorChart data={dataset.colorPercent} />
-            <FrameGallery datasetKey={activeDatasetId} frames={datasets[activeDatasetId]?.frames ?? []} />
-            
-            {/* Новые компоненты */}
+            <FrameGallery
+              datasetKey={dsKey}
+              frames={datasets[dsKey]?.frames ?? []}
+            />
             <GuessGame />
             <WorldMap />
             <LiveCitySound />
             <ChatBot />
-            <Legend />
+            <Legend dataset={dataset} />
           </div>
         </section>
 
@@ -142,8 +191,7 @@ export default function App() {
       <SpiritOfEarth datasetId={dsKey} />
       <HowItWorksModal open={showHiw} onClose={() => setShowHiw(false)} />
       <AboutModal open={showAbout} onClose={() => setShowAbout(false)} />
-      
-      {/* Story Mode overlay */}
+
       {showStory && <StoryMode onClose={() => setShowStory(false)} />}
     </main>
   );

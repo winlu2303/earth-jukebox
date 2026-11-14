@@ -6,10 +6,9 @@ import { useA11y } from './AccessibilityProvider';
 export default function SpiritOfEarth({ datasetId }) {
   const { enabled, speak } = useA11y();
   const [line, setLine] = useState('');
-  const [direction, setDirection] = useState('north'); // По умолчанию смотрит на нас
+  const [direction, setDirection] = useState('south');
   const spiritRef = useRef(null);
 
-  // 1. Логика реплик при смене датасета
   useEffect(() => {
     if (!datasetId) return;
     const text = pickLine(datasetId);
@@ -17,7 +16,6 @@ export default function SpiritOfEarth({ datasetId }) {
     if (enabled) speak(text);
   }, [datasetId, enabled, speak]);
 
-  // 2. Логика слежения за мышкой
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!spiritRef.current) return;
@@ -28,17 +26,17 @@ export default function SpiritOfEarth({ datasetId }) {
 
       const dx = e.clientX - spiritX;
       const dy = e.clientY - spiritY;
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI); // Угол от -180 до 180
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      let newDirection = 'north';
-      if (angle >= -22.5 && angle < 22.5) newDirection = 'east';        // Мышка справа
-      else if (angle >= 22.5 && angle < 67.5) newDirection = 'south-east'; // Справа-снизу
-      else if (angle >= 67.5 && angle < 112.5) newDirection = 'south';   // Снизу (спина)
-      else if (angle >= 112.5 && angle < 157.5) newDirection = 'south-west'; // Слева-снизу
-      else if (angle >= 157.5 || angle < -157.5) newDirection = 'west';  // Слева
-      else if (angle >= -157.5 && angle < -112.5) newDirection = 'north-west'; // Слева-сверху
-      else if (angle >= -112.5 && angle < -67.5) newDirection = 'north'; // Сверху (фронт)
-      else if (angle >= -67.5 && angle < -22.5) newDirection = 'north-east'; // Справа-сверху
+      let newDirection = 'south';
+      if (angle >= -22.5 && angle < 22.5) newDirection = 'east';
+      else if (angle >= 22.5 && angle < 67.5) newDirection = 'south-east';
+      else if (angle >= 67.5 && angle < 112.5) newDirection = 'south';
+      else if (angle >= 112.5 && angle < 157.5) newDirection = 'south-west';
+      else if (angle >= 157.5 || angle < -157.5) newDirection = 'west';
+      else if (angle >= -157.5 && angle < -112.5) newDirection = 'north-west';
+      else if (angle >= -112.5 && angle < -67.5) newDirection = 'north';
+      else if (angle >= -67.5 && angle < -22.5) newDirection = 'north-east';
 
       setDirection(newDirection);
     };
@@ -65,8 +63,7 @@ export default function SpiritOfEarth({ datasetId }) {
           </motion.div>
         )}
       </AnimatePresence>
-      
-      {/* Спрайт Духа Земли */}
+
       <motion.div
         ref={spiritRef}
         animate={{ y: [0, -6, 0] }}
@@ -74,14 +71,14 @@ export default function SpiritOfEarth({ datasetId }) {
         aria-hidden="true"
         className="w-24 h-24 flex-shrink-0 cursor-pointer"
       >
-        <img 
+        <img
           key={direction}
-          src={`/images/${direction}.png`} 
-          alt="" 
+          src={`/images/${direction}.png`}
+          alt=""
           className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]"
           style={{ imageRendering: 'pixelated' }}
           onError={(e) => {
-            e.target.src = '/images/north.png'; // Если файла нет, показываем фронт
+            e.target.src = '/images/south.png';
           }}
         />
       </motion.div>

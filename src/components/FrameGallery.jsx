@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useSpeech } from '../hooks/useSpeech';
 
 export default function FrameGallery({ datasetKey, frames = [] }) {
   const [active, setActive] = useState(null);
+  const { speak } = useSpeech();
 
   if (!frames.length) {
     return (
@@ -11,6 +13,29 @@ export default function FrameGallery({ datasetKey, frames = [] }) {
       </div>
     );
   }
+
+  const handleClick = (frame, index) => {
+    const next = active === index ? null : index;
+    setActive(next);
+
+    
+    if (next !== null) {
+      const text = `${frame.caption}. ${frame.description}`;
+      speak(text);
+
+      const instrument = frame.dominantInstrument?.toLowerCase();
+      if (instrument) {
+        const audio = new Audio(`/sounds/mp3/${instrument}.mp3`);
+        audio.volume = 0.6;
+        audio.play().catch(() => {
+        });
+      }
+    } else {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    }
+  };
 
   return (
     <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
@@ -29,13 +54,14 @@ export default function FrameGallery({ datasetKey, frames = [] }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            onClick={() => setActive(active === i ? null : i)}
+            onClick={() => handleClick(frame, i)}
             className={`rounded-lg overflow-hidden border transition-all text-left ${
               active === i
                 ? 'border-cyan-400 scale-105 shadow-lg shadow-cyan-500/20'
                 : 'border-white/10 hover:border-white/30'
             }`}
-            aria-label={`Frame ${i + 1}: ${frame.caption}`}
+            aria-label={`Frame ${i + 1}: ${frame.caption}. ${frame.description}`}
+            aria-pressed={active === i}
           >
             <img
               src={frame.src}
@@ -60,6 +86,7 @@ export default function FrameGallery({ datasetKey, frames = [] }) {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           className="mt-4 p-4 rounded-lg bg-cyan-500/10 border border-cyan-400/20"
+          aria-live="polite"
         >
           <p className="text-sm text-white/90">
             <strong>{frames[active].caption}.</strong> {frames[active].description}
