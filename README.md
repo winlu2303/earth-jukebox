@@ -462,7 +462,7 @@ k6 run tests/load/live-city.js
 |---|---|---|
 | **Full Presentation** | [docs/earth-jukebox.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf) | For open-source community and full context. |
 | **Jury Deck (7 slides)** | [docs/earth-jukebox-jury.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox-jury.pdf) | For NASA Space Apps judging. 7 slides, English. |
-| **Demo Video (30 s)** | [demo-video] (https://youtu.be/jyYzB4xJFCs) | This 28-second demo provides a high-level overview of Earth Jukebox and demonstrates the core working functionality. It shows the sonification of NASA data, live city weather sonification, and our AI-powered accessibility features. The full MVP is available at the live link. |
+| **Demo Video (30 s)** | [demo-video](https://youtu.be/jyYzB4xJFCs) | This 28-second demo provides a high-level overview of Earth Jukebox and demonstrates the core working functionality. It shows the sonification of NASA data, live city weather sonification, and our AI-powered accessibility features. The full MVP is available at the live link. |
 
 > **Note for judges:** the demo video will be a public YouTube link with no login required, per the Project Submission Guide.
 
