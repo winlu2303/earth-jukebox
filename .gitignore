@@ -82,6 +82,10 @@ tmp_frames/
 *.sf2
 *.wav
 
+# Sounds: exclude heavy .wav, keep small .mp3
+public/sounds/*.wav
+!public/sounds/mp3/*.mp3
+
 # Исходные видео NASA
 # public/videos/original/
 # public/videos/raw/
@@ -119,3 +123,7 @@ audio_output/
 *.bak
 *.orig
 .coveralls.yml
+
+# Test artifacts
+coverage/
+.nyc_output/

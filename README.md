@@ -39,6 +39,9 @@ Climate data is one of the most important bodies of knowledge we have — and on
 ![Gemini](https://img.shields.io/badge/Gemini-AI-8E75B2?logo=google&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 [![Presentation](https://img.shields.io/badge/📊_Presentation-PDF-EF4444?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)
+![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen)
+[![Tests](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml/badge.svg)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
+![Coverage](https://img.shields.io/badge/coverage-sonifyCity%20100%25-brightgreen)
 
 
 | Parameter | Value |
