@@ -40,7 +40,7 @@ Climate data is one of the most important bodies of knowledge we have — and on
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 [![Full Presentation](https://img.shields.io/badge/📊_Full_Presentation-PDF-EF4444?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf)
 [![Jury Deck](https://img.shields.io/badge/🎯_Jury_Deck-7_slides-22D3EE?style=for-the-badge)](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox-jury.pdf)
-[![Demo Video](https://img.shields.io/badge/🎬_Demo_Video-coming_soon-FF0000?style=for-the-badge&logo=youtube)](https://github.com/winlu2303/earth-jukebox)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/jyYzB4xJFCs)
 [![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
 [![Coverage](https://img.shields.io/badge/coverage-sonifyCity%20100%25-brightgreen)](https://github.com/winlu2303/earth-jukebox/actions/workflows/test.yml)
 [![Load Test](https://img.shields.io/badge/k6-100%25%20success%20(50%20VU)-brightgreen)](https://github.com/winlu2303/earth-jukebox/tree/main/tests/load)
@@ -325,10 +325,10 @@ We want to be transparent about the current limitations of our MVP.
    - The vibration API (`navigator.vibrate`) only works on mobile devices. On desktop, it is silently ignored.
 
 7. **Instrument Mixer (CORS Limitation):**
-  - **What it is:** A feature that allows isolating individual instruments (e.g., muting the bass to hear only the piano).
-  - **Why it's disabled:** The sonified videos are hosted on YouTube. Browser CORS policies prevent us from separating audio tracks from an iframe. 
-  - **The solution:** We designed the mixer to work with local `.mp4` files. To enable it in production, we need to host the raw video/audio files on a dedicated server (e.g., AWS S3 or Netlify Large Media) and use the Web Audio API. This is planned for Year 2 (Real-Time Global Sonification).
-  - **Why we kept it visible:** We left the UI visible to show the *potential* of the feature and our architectural plan, rather than hiding it.
+   - **What it is:** A feature that allows isolating individual instruments (e.g., muting the bass to hear only the piano).
+   - **Why it's disabled:** The sonified videos are hosted on YouTube. Browser CORS policies prevent us from separating audio tracks from an iframe. 
+   - **The solution:** We designed the mixer to work with local `.mp4` files. To enable it in production, we need to host the raw video/audio files on a dedicated server (e.g., AWS S3 or Netlify Large Media) and use the Web Audio API. This is planned for Year 2 (Real-Time Global Sonification).
+   - **Why we kept it visible:** We left the UI visible to show the *potential* of the feature and our architectural plan, rather than hiding it.
 
 ---
 
@@ -462,7 +462,7 @@ k6 run tests/load/live-city.js
 |---|---|---|
 | **Full Presentation** | [docs/earth-jukebox.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox.pdf) | For open-source community and full context. |
 | **Jury Deck (7 slides)** | [docs/earth-jukebox-jury.pdf](https://github.com/winlu2303/earth-jukebox/blob/main/docs/earth-jukebox-jury.pdf) | For NASA Space Apps judging. 7 slides, English. |
-| **Demo Video (30 s)** | _coming soon_ | Recorded after the final MVP deploy on Netlify. Will be linked here and in the badges. |
+| **Demo Video (30 s)** | [demo-video] (https://youtu.be/jyYzB4xJFCs) | This 28-second demo provides a high-level overview of Earth Jukebox and demonstrates the core working functionality. It shows the sonification of NASA data, live city weather sonification, and our AI-powered accessibility features. The full MVP is available at the live link. |
 
 > **Note for judges:** the demo video will be a public YouTube link with no login required, per the Project Submission Guide.
 
