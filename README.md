@@ -483,6 +483,8 @@ Copyright (c) 2026 Sofia-Luna Winter / MindWave.
 
 This means: **you can use, modify, and share this code** as long as you keep the original copyright notice. Your authorship is preserved.
 
+---
+
 ## 17. Acknowledgments
 
 - **NASA Space Apps Challenge 2026** — for the challenge, the data, and the platform.
