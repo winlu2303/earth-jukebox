@@ -256,6 +256,14 @@ In the browser, we also have a real-time color analysis feature (for local video
 - **Mechanism:** Every frame, the video is drawn to a hidden canvas, and the pixels are read. The colors are quantized using a nearest-neighbor algorithm.
 - **Output:** The `ColorChart.jsx` component displays the percentages dynamically.
 
+### 8.3. Future Optimization: Server-Side Data Hosting
+
+Currently, the sonified videos are hosted on YouTube to keep the repository lightweight (under GitHub's 100MB limit). However, this introduces a major limitation: **Instrument Isolation is impossible for YouTube-hosted videos**. 
+
+Due to CORS (Cross-Origin Resource Sharing) restrictions, the browser cannot access the raw audio streams inside a YouTube iframe to separate individual tracks. 
+
+To make the Instrument Mixer fully functional, the data processing should be moved to the server side (or a CDN like AWS S3 / Netlify Large Media). By hosting the raw `.mp4` files and extracting the audio tracks directly via the **Web Audio API**, we can enable real-time isolation of the 7 instruments. This is a core part of our Year 2 roadmap ("Real-Time Global Sonification").
+
 ---
 
 ## 9. Step-by-Step Testing Scenario
@@ -315,6 +323,12 @@ We want to be transparent about the current limitations of our MVP.
 
 6. **Haptics on Desktop:**
    - The vibration API (`navigator.vibrate`) only works on mobile devices. On desktop, it is silently ignored.
+
+7. **Instrument Mixer (CORS Limitation):**
+  - **What it is:** A feature that allows isolating individual instruments (e.g., muting the bass to hear only the piano).
+  - **Why it's disabled:** The sonified videos are hosted on YouTube. Browser CORS policies prevent us from separating audio tracks from an iframe. 
+  - **The solution:** We designed the mixer to work with local `.mp4` files. To enable it in production, we need to host the raw video/audio files on a dedicated server (e.g., AWS S3 or Netlify Large Media) and use the Web Audio API. This is planned for Year 2 (Real-Time Global Sonification).
+  - **Why we kept it visible:** We left the UI visible to show the *potential* of the feature and our architectural plan, rather than hiding it.
 
 ---
 
